@@ -20,6 +20,16 @@ public class CalculatorModel {
         calculationValue = firstNumber-secondNumber;
     }
 
+    public void mulTwoNumbers(int firstNumber, int secondNumber)
+    {
+        calculationValue = firstNumber*secondNumber;
+    }
+
+    public void divTwoNumbers(int firstNumber, int secondNumber)
+    {
+        calculationValue = firstNumber/secondNumber;
+    }
+
     public int getCalculationValue(){
 
         return calculationValue;

@@ -10,12 +10,14 @@ import javax.swing.*;
 
 public class CalculatorView extends JFrame{
 
-    //addition
     private JTextField firstNumber  = new JTextField(10);
-    private JLabel additionLabel = new JLabel("+");
+    String[] operations = { "+", "-", "/", "*"};
+    private JComboBox operationLabel = new JComboBox(operations);
+    //additionLabel = new JLabel("+");
     private JTextField secondNumber = new JTextField(10);
     private JButton calculateButton = new JButton("Calculate");
     private JTextField calcSolution = new JTextField(10);
+
 
 
     CalculatorView(){
@@ -29,7 +31,7 @@ public class CalculatorView extends JFrame{
 
         //addition
         calcPanel.add(firstNumber);
-        calcPanel.add(additionLabel);
+        calcPanel.add(operationLabel);
         calcPanel.add(secondNumber);
         calcPanel.add(calculateButton);
         calcPanel.add(calcSolution);
@@ -39,25 +41,24 @@ public class CalculatorView extends JFrame{
         // End of setting up the components --------
 
     }
-
     public int getFirstNumber(){
 
         return Integer.parseInt(firstNumber.getText());
 
     }
-
     public int getSecondNumber(){
 
         return Integer.parseInt(secondNumber.getText());
 
     }
-
+    public String getOp(){
+        return operations[operationLabel.getSelectedIndex()];
+    }
     public int getCalcSolution(){
 
         return Integer.parseInt(calcSolution.getText());
 
     }
-
     public void setCalcSolution(int solution){
 
         calcSolution.setText(Integer.toString(solution));

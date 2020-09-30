@@ -25,6 +25,7 @@ public class CalculatorController {
         public void actionPerformed(ActionEvent e) {
 
             int firstNumber, secondNumber = 0;
+            String op;
 
             // Surround interactions with the view with
             // a try block in case numbers weren't
@@ -34,9 +35,24 @@ public class CalculatorController {
 
                 firstNumber = theView.getFirstNumber();
                 secondNumber = theView.getSecondNumber();
+                op = theView.getOp();
+                if (op=="+")
+                {
+                    theModel.addTwoNumbers(firstNumber, secondNumber);
+                }
+                else if(op=="-")
+                {
+                    theModel.subTwoNumbers(firstNumber, secondNumber);
+                }
+                else if(op=="*")
+                {
+                    theModel.mulTwoNumbers(firstNumber, secondNumber);
+                }
 
-                theModel.addTwoNumbers(firstNumber, secondNumber);
-
+                else if(op=="/")
+                {
+                    theModel.divTwoNumbers(firstNumber, secondNumber);
+                }
                 theView.setCalcSolution(theModel.getCalculationValue());
 
             }
