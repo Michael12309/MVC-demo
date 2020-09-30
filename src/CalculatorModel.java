@@ -1,9 +1,29 @@
+// The Model performs all the calculations needed
+// and that is it. It doesn't know the View
+// exists
 
 public class CalculatorModel {
-	String testComment = "This is the CalculatorModel class";
 
-	public CalculatorModel() {
-		System.out.println(testComment);
-	}
-	
+    // Holds the value of the sum of the numbers
+    // entered in the view
+
+    private int calculationValue;
+
+    public void addTwoNumbers(int firstNumber, int secondNumber){
+
+        calculationValue = firstNumber + secondNumber;
+
+    }
+
+    public void subTwoNumbers(int firstNumber, int secondNumber)
+    {
+        calculationValue = firstNumber-secondNumber;
+    }
+
+    public int getCalculationValue(){
+
+        return calculationValue;
+
+    }
+
 }
