@@ -18,11 +18,33 @@ public class CalculatorController {
         // in the CalculateListener inner class
 
         this.theView.addCalculateListener(new CalculateListener());
+        this.theView.addButtonListeners(new ButtonListener());
+    }
+
+    class ButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("button pressed");
+            System.out.println(e);
+
+            /*
+            TODO:
+
+            have each button pressed change the currentDisplay AKA the textfield on top
+            I'm not sure how to get what buttons is pressed from variable e
+             */
+
+
+            //theView.currentDisplay =
+        }
     }
 
     class CalculateListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
+
+            /*
+
+            To be deleted ==========================
 
             int firstNumber, secondNumber = 0;
             String op;
@@ -64,6 +86,7 @@ public class CalculatorController {
                 theView.displayErrorMessage("You Need to Enter 2 Integers");
 
             }
+            */
 
         }
 
