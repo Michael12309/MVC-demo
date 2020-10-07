@@ -55,18 +55,18 @@ public class CalculatorController {
             }
             else if(operation=="-")
             {
-                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("-")+1,theView.getoutput().length()));
+                secondNumber=Double.parseDouble(theView.getoutput().substring(theView.getoutput().indexOf("-")+1,theView.getoutput().length()));
                 theModel.subTwoNumbers(firstNumber, secondNumber);
             }
             else if(operation=="×")
             {
-                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("×")+1,theView.getoutput().length()));
+                secondNumber=Double.parseDouble(theView.getoutput().substring(theView.getoutput().indexOf("×")+1,theView.getoutput().length()));
                 theModel.mulTwoNumbers(firstNumber, secondNumber);
             }
 
             else if(operation=="÷")
             {
-                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("÷")+1,theView.getoutput().length()));
+                secondNumber=Double.parseDouble(theView.getoutput().substring(theView.getoutput().indexOf("÷")+1,theView.getoutput().length()));
                 theModel.divTwoNumbers(firstNumber, secondNumber);
             }
             System.out.println(firstNumber +operation+ secondNumber+"="+theModel.getCalculationValue());
