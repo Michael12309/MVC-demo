@@ -30,9 +30,8 @@ public class CalculatorModel {
         calculationValue = firstNumber/secondNumber;
     }
 
-    public int getCalculationValue(){
-
-        return calculationValue;
+    public String getCalculationValue(){
+        return Integer.toString(calculationValue);
 
     }
 

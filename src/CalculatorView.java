@@ -63,6 +63,7 @@ public class CalculatorView {
         c.gridwidth = 4;
         c.gridx = 0;
         c.gridy = 0;
+        answer.setEnabled(false);
         calcPane.add(answer, c);
         c.gridwidth = 1;
 

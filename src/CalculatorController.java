@@ -8,6 +8,8 @@ public class CalculatorController {
 
     private CalculatorView theView;
     private CalculatorModel theModel;
+    private String operation;
+    private int firstNumber, secondNumber;
 
     public CalculatorController(CalculatorView theView, CalculatorModel theModel) {
         this.theView = theView;
@@ -32,21 +34,12 @@ public class CalculatorController {
                 if (e.getActionCommand() == "+" || e.getActionCommand() == "-" || e.getActionCommand() == "×" || e.getActionCommand() == "÷")
                 {
                     System.out.println("Do "+e.getActionCommand() +" op");
+                    operation=e.getActionCommand();
+                    firstNumber=Integer.parseInt(theView.getoutput());
                 }
                 System.out.println(e.getActionCommand()+" button pressed");
                 theView.setoutput(theView.getoutput()+e.getActionCommand());
             }
-
-
-            /*
-            TODO:
-
-            have each button pressed change the currentDisplay AKA the textfield on top
-            I'm not sure how to get what buttons is pressed from variable e
-             */
-
-
-            //theView.currentDisplay =
         }
     }
 
@@ -54,6 +47,31 @@ public class CalculatorController {
         public void actionPerformed(ActionEvent e) {
             System.out.println("button pressed");
             System.out.println(e);
+
+
+            if (operation=="+")
+            {
+                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("+")+1,theView.getoutput().length()));
+                theModel.addTwoNumbers(firstNumber, secondNumber);
+            }
+            else if(operation=="-")
+            {
+                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("-")+1,theView.getoutput().length()));
+                theModel.subTwoNumbers(firstNumber, secondNumber);
+            }
+            else if(operation=="×")
+            {
+                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("×")+1,theView.getoutput().length()));
+                theModel.mulTwoNumbers(firstNumber, secondNumber);
+            }
+
+            else if(operation=="÷")
+            {
+                secondNumber=Integer.parseInt(theView.getoutput().substring(theView.getoutput().indexOf("÷")+1,theView.getoutput().length()));
+                theModel.divTwoNumbers(firstNumber, secondNumber);
+            }
+            System.out.println(firstNumber +operation+ secondNumber+"="+theModel.getCalculationValue());
+            theView.setoutput(theModel.getCalculationValue());
 
             /*
 
