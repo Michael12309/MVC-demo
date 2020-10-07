@@ -17,14 +17,26 @@ public class CalculatorController {
         // is clicked to execute the actionPerformed method
         // in the CalculateListener inner class
 
-        this.theView.addCalculateListener(new CalculateListener());
+        this.theView.CalculateListener(new CalculateListener());
         this.theView.addButtonListeners(new ButtonListener());
     }
 
     class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.println("button pressed");
-            System.out.println(e);
+            if(e.getActionCommand()=="C")
+            {
+                theView.setoutput("");
+            }
+            else
+            {
+                if (e.getActionCommand() == "+" || e.getActionCommand() == "-" || e.getActionCommand() == "×" || e.getActionCommand() == "÷")
+                {
+                    System.out.println("Do "+e.getActionCommand() +" op");
+                }
+                System.out.println(e.getActionCommand()+" button pressed");
+                theView.setoutput(theView.getoutput()+e.getActionCommand());
+            }
+
 
             /*
             TODO:
@@ -39,8 +51,9 @@ public class CalculatorController {
     }
 
     class CalculateListener implements ActionListener{
-
         public void actionPerformed(ActionEvent e) {
+            System.out.println("button pressed");
+            System.out.println(e);
 
             /*
 
