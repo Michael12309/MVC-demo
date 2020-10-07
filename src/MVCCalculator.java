@@ -6,9 +6,7 @@ public class MVCCalculator {
 
         CalculatorModel theModel = new CalculatorModel();
 
-        CalculatorController theController = new CalculatorController(theView,theModel);
-
-        theView.setVisible(true);
+        CalculatorController theController = new CalculatorController(theView, theModel);
 
     }
 }

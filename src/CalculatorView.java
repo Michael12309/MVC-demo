@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
-public class CalculatorView extends JFrame {
+public class CalculatorView {
 
     final private int WIDTH = 300;
     final private int HEIGHT = (int) (WIDTH * 1.5);
@@ -42,119 +42,123 @@ public class CalculatorView extends JFrame {
 
     CalculatorView(){
 
+        JFrame frame = new JFrame("Calculator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Container calcPane = frame.getContentPane();
+        calcPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+
         // Sets up the view and adds the components
 
         /*
         Information on how to use GridBagLayout can be found here:
         https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
         */
-        JPanel calcPanel = new JPanel(new GridBagLayout());
+        calcPane.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        this.setSize(WIDTH, HEIGHT);
+        calcPane.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridwidth = 4;
         c.gridx = 0;
         c.gridy = 0;
-        calcPanel.add(answer, c);
+        calcPane.add(answer, c);
         c.gridwidth = 1;
 
         c.gridx = 0;
         c.gridy = 1;
         seven.setMnemonic(KeyEvent.VK_7);   // 7 key
-        calcPanel.add(seven, c);
+        calcPane.add(seven, c);
 
         c.gridx = 1;
         c.gridy = 1;
         eight.setMnemonic(KeyEvent.VK_8);   // 8 key
-        calcPanel.add(eight, c);
+        calcPane.add(eight, c);
 
         c.gridx = 2;
         c.gridy = 1;
         nine.setMnemonic(KeyEvent.VK_9);   // 9 key
-        calcPanel.add(nine, c);
+        calcPane.add(nine, c);
 
         c.gridx = 3;
         c.gridy = 1;
         divide.setMnemonic(KeyEvent.VK_SLASH);   // / key
-        calcPanel.add(divide, c);
+        calcPane.add(divide, c);
 
         c.gridx = 0;
         c.gridy = 2;
         four.setMnemonic(KeyEvent.VK_4);   // 4 key
-        calcPanel.add(four, c);
+        calcPane.add(four, c);
 
         c.gridx = 1;
         c.gridy = 2;
         five.setMnemonic(KeyEvent.VK_5);   // 5 key
-        calcPanel.add(five, c);
+        calcPane.add(five, c);
 
         c.gridx = 2;
         c.gridy = 2;
         six.setMnemonic(KeyEvent.VK_6);   // 6 key
-        calcPanel.add(six, c);
+        calcPane.add(six, c);
 
         c.gridx = 3;
         c.gridy = 2;
-        calcPanel.add(multiply, c);
+        calcPane.add(multiply, c);
 
         c.gridx = 0;
         c.gridy = 3;
         one.setMnemonic(KeyEvent.VK_1);   // 1 key
-        calcPanel.add(one, c);
+        calcPane.add(one, c);
 
         c.gridx = 1;
         c.gridy = 3;
         two.setMnemonic(KeyEvent.VK_2);   // 2 key
-        calcPanel.add(two, c);
+        calcPane.add(two, c);
 
         c.gridx = 2;
         c.gridy = 3;
         three.setMnemonic(KeyEvent.VK_3);   // 3 key
-        calcPanel.add(three, c);
+        calcPane.add(three, c);
 
         c.gridx = 3;
         c.gridy = 3;
         add.setMnemonic(KeyEvent.VK_ADD);   // + key
-        calcPanel.add(add, c);
+        calcPane.add(add, c);
 
         c.gridwidth = 2;
         c.gridx = 0;
         c.gridy = 4;
         zero.setMnemonic(KeyEvent.VK_0);   // 0 key
-        calcPanel.add(zero, c);
+        calcPane.add(zero, c);
         c.gridwidth = 1;
 
         c.gridx = 2;
         c.gridy = 4;
         point.setMnemonic(KeyEvent.VK_PERIOD);   // . key
-        calcPanel.add(point, c);
+        calcPane.add(point, c);
 
         c.gridx = 3;
         c.gridy = 4;
         subtract.setMnemonic(KeyEvent.VK_SUBTRACT);   // - key
-        calcPanel.add(subtract, c);
+        calcPane.add(subtract, c);
         c.gridwidth = 4;
 
         c.gridwidth = 3;
         c.gridx = 0;
         c.gridy = 5;
         equals.setMnemonic(KeyEvent.VK_EQUALS);   // = key
-        calcPanel.add(equals, c);
+        calcPane.add(equals, c);
 
         c.gridwidth = 1;
         c.gridx = 3;
         c.gridy = 5;
         equals.setMnemonic(KeyEvent.VK_CLEAR);   // C key
-        calcPanel.add(clear, c);
-
-
-        this.add(calcPanel);
+        calcPane.add(clear, c);
 
         // End of setting up the components --------
+
+        frame.pack();
+        frame.setVisible(true);
 
     }
 
@@ -204,7 +208,7 @@ public class CalculatorView extends JFrame {
 
     void displayErrorMessage(String errorMessage){
 
-        JOptionPane.showMessageDialog(this, errorMessage);
+        //JOptionPane.showMessageDialog(this, errorMessage);
 
     }
 
