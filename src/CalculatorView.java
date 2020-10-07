@@ -37,7 +37,6 @@ public class CalculatorView extends JFrame {
     private JTextField answer = new JTextField();
 
     /* calculator variables ======================= */
-    private int solution;
     public String currentDisplay;
 
 
@@ -159,9 +158,14 @@ public class CalculatorView extends JFrame {
 
     }
 
-    public void setCalcSolution(int solution){
+    public String getoutput(){
 
-        answer.setText(Integer.toString(solution));
+        return answer.getText();
+
+    }
+    public void setoutput(String output){
+
+        answer.setText(output);
 
     }
 
@@ -182,12 +186,15 @@ public class CalculatorView extends JFrame {
         add.addActionListener(listener);
         subtract.addActionListener(listener);
         point.addActionListener(listener);
+        clear.addActionListener(listener);
+
+
     }
 
     // If the calculateButton is clicked execute a method
     // in the Controller named actionPerformed
 
-    void addCalculateListener(ActionListener listenForCalcButton){
+    void CalculateListener(ActionListener listenForCalcButton){
 
         equals.addActionListener(listenForCalcButton);
 
