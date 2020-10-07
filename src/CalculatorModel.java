@@ -7,31 +7,27 @@ public class CalculatorModel {
     // Holds the value of the sum of the numbers
     // entered in the view
 
-    private int calculationValue;
+    private double calculationValue;
 
-    public void addTwoNumbers(int firstNumber, int secondNumber){
+    public void addTwoNumbers(double firstNumber, double secondNumber){ calculationValue = firstNumber + secondNumber; }
 
-        calculationValue = firstNumber + secondNumber;
-
-    }
-
-    public void subTwoNumbers(int firstNumber, int secondNumber)
+    public void subTwoNumbers(double firstNumber, double secondNumber)
     {
         calculationValue = firstNumber-secondNumber;
     }
 
-    public void mulTwoNumbers(int firstNumber, int secondNumber)
+    public void mulTwoNumbers(double firstNumber, double secondNumber)
     {
         calculationValue = firstNumber*secondNumber;
     }
 
-    public void divTwoNumbers(int firstNumber, int secondNumber)
+    public void divTwoNumbers(double firstNumber, double secondNumber)
     {
         calculationValue = firstNumber/secondNumber;
     }
 
     public String getCalculationValue(){
-        return Integer.toString(calculationValue);
+        return Double.toString(calculationValue);
 
     }
 
