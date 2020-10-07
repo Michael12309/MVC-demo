@@ -59,6 +59,7 @@ public class CalculatorView extends JFrame {
         c.gridwidth = 4;
         c.gridx = 0;
         c.gridy = 0;
+        answer.setEnabled(false);
         calcPanel.add(answer, c);
         c.gridwidth = 1;
 
