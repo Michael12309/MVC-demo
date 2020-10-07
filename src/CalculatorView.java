@@ -32,6 +32,7 @@ public class CalculatorView extends JFrame {
     private JButton subtract = new JButton("-");
     private JButton equals = new JButton("=");
     private JButton point = new JButton(".");
+    private JButton clear = new JButton("C");
 
     private JTextField answer = new JTextField();
 
@@ -139,11 +140,18 @@ public class CalculatorView extends JFrame {
         calcPanel.add(subtract, c);
         c.gridwidth = 4;
 
+        c.gridwidth = 3;
         c.gridx = 0;
         c.gridy = 5;
         equals.setMnemonic(KeyEvent.VK_EQUALS);   // = key
         calcPanel.add(equals, c);
+
         c.gridwidth = 1;
+        c.gridx = 3;
+        c.gridy = 5;
+        equals.setMnemonic(KeyEvent.VK_CLEAR);   // C key
+        calcPanel.add(clear, c);
+
 
         this.add(calcPanel);
 
